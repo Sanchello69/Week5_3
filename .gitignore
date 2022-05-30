@@ -13,4 +13,3 @@
 .externalNativeBuild
 .cxx
 local.properties
-com.vas.core.utils.Constants.FAVORITE_URL
