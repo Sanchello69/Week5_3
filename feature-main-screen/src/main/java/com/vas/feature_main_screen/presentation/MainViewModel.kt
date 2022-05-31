@@ -21,15 +21,6 @@ class MainViewModel(private val getMainUseCase: GetMainUseCase,
 
     val catListData: LiveData<PagingData<CatModel>> = getMainUseCase.execute().cachedIn(viewModelScope)
 
-    fun getMain() = liveData(Dispatchers.IO) {
-        emit(Resource.loading(data = null))
-        try {
-            emit(Resource.success(data = getMainUseCase.execute().cachedIn(viewModelScope)))
-        } catch (exception: Exception) {
-            emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
-        }
-    }
-
     fun postLike(id: String){
         ioScope.launch {
             _message.value = postLikeUseCaseExecuting(id)

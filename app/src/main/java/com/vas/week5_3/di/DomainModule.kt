@@ -1,5 +1,7 @@
 package com.vas.week5_3.di
 
+import com.vas.feature_favorite_screen.domain.repository.FavoriteRepository
+import com.vas.feature_favorite_screen.domain.useCase.GetFavoriteUseCase
 import com.vas.feature_main_screen.domain.repository.MainRepository
 import com.vas.feature_main_screen.domain.useCase.GetMainUseCase
 import com.vas.feature_main_screen.domain.useCase.PostLikeUseCase
@@ -17,6 +19,11 @@ class DomainModule {
     @Provides
     fun providePostLikeUseCase(mainRepository: MainRepository): PostLikeUseCase {
         return PostLikeUseCase(mainRepository = mainRepository)
+    }
+
+    @Provides
+    fun provideGetFavoriteUseCase(favoriteRepository: FavoriteRepository): GetFavoriteUseCase{
+        return GetFavoriteUseCase(favoriteRepository = favoriteRepository)
     }
 
 }

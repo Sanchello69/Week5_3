@@ -19,7 +19,7 @@ class Api (private val httpClient: HttpClient) {
                 url {
                     parameters.append("limit", "10")
                     parameters.append("page", "$page")
-                    parameters.append("order", "Asc")
+                    parameters.append("order", "rand")
                 }
                 header("x-api-key", API_KEY)
             }

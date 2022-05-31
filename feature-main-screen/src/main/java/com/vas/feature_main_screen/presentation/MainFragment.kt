@@ -69,26 +69,6 @@ class MainFragment : Fragment() {
             }
         })
 
-//        viewModel?.getMain()?.observe(viewLifecycleOwner, Observer {
-//            it?.let { resource ->
-//                when (resource.status) {
-//                    Status.SUCCESS -> {
-//                        Log.d("status", "SUCCESS")
-//                        Log.d("status", "${it.data}")
-//                        lifecycleScope.launch {
-//                            pagingAdapter.submitData(it.data?.value!!)
-//                        }
-//                    }
-//                    Status.ERROR -> {
-//                        Log.d("status", "ERROR ${it.message}")
-//                    }
-//                    Status.LOADING -> {
-//                        Log.d("status",  "LOADING")
-//                    }
-//                }
-//            }
-//        })
-
         viewModel?.message?.observe(viewLifecycleOwner, Observer {
             if (it=="SUCCESS" || it.contains("DUPLICATE_FAVOURITE"))
                 binding?.catViewPager?.currentItem = positionViewPager!!+1

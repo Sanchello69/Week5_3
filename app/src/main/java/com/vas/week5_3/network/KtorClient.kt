@@ -1,7 +1,6 @@
-package com.vas.feature_main_screen.data.network
+package com.vas.week5_3.network
 
 import android.util.Log
-import android.widget.Toast
 import io.ktor.client.*
 import io.ktor.client.features.*
 import io.ktor.client.features.json.*
