@@ -11,9 +11,6 @@ class ApiFavorite (private val httpClient: HttpClient) {
     suspend fun getFavoriteResult(): List<FavoriteCatModelApi> {
         try {
             val response: List<FavoriteCatModelApi> = httpClient.get(Constants.BASE_URL + Constants.FAVORITE_URL){
-                url {
-                    parameters.append("limit", "10")
-                }
                 header("x-api-key", Constants.API_KEY)
             }
 

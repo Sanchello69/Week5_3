@@ -5,4 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".presentation.FavoriteFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/favoriteRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </FrameLayout>

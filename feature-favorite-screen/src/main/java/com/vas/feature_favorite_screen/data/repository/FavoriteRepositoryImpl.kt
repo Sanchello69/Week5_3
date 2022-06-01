@@ -8,7 +8,7 @@ class FavoriteRepositoryImpl(private val api: ApiFavorite): FavoriteRepository {
 
     override suspend fun getFavoriteResult() : List<FavoriteCatModel> {
         return api.getFavoriteResult().map {
-            FavoriteCatModel(it.imageId)
+            FavoriteCatModel(it.image.imageId)
         }
     }
 }

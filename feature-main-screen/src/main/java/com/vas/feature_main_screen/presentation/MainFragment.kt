@@ -16,6 +16,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.vas.core.utils.Status
 import com.vas.feature_main_screen.databinding.FragmentMainBinding
 import com.vas.feature_main_screen.di.MainComponentViewModel
+import com.vas.feature_main_screen.navigation.MainNavCommandProvider
+import com.vas.navigation.navigate
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,8 +26,8 @@ class MainFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: MainViewModelFactory
 
-    //@Inject
-    //lateinit var mainNavCommandProvider: MainNavCommandProvider
+    @Inject
+    lateinit var mainNavCommandProvider: MainNavCommandProvider
 
     private var binding: FragmentMainBinding? = null
     private var viewModel: MainViewModel? = null
@@ -80,6 +82,7 @@ class MainFragment : Fragment() {
 
     private fun setupUI() {
         initCatViewPager()
+        initFavoriteButton()
     }
 
     private fun setupViewModel() {
@@ -107,6 +110,12 @@ class MainFragment : Fragment() {
                 super.onPageSelected(position)
             }
         })
+    }
+
+    private fun initFavoriteButton() {
+        binding?.starsImageView?.setOnClickListener {
+            navigate(mainNavCommandProvider.toFavorite)
+        }
     }
 
     private fun likeClick(id: String){
