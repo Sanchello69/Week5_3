@@ -3,13 +3,12 @@ package com.vas.feature_main_screen.presentation
 import androidx.lifecycle.*
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.vas.core.utils.Resource
 import com.vas.feature_main_screen.domain.model.CatModel
-import com.vas.feature_main_screen.domain.useCase.GetMainUseCase
+import com.vas.feature_main_screen.domain.useCase.GetCatsUseCase
 import com.vas.feature_main_screen.domain.useCase.PostLikeUseCase
 import kotlinx.coroutines.*
 
-class MainViewModel(private val getMainUseCase: GetMainUseCase,
+class MainViewModel(private val getCatsUseCase: GetCatsUseCase,
                     private val postLikeUseCase: PostLikeUseCase) : ViewModel() {
 
     private val _message = MutableLiveData<String>()
@@ -19,7 +18,7 @@ class MainViewModel(private val getMainUseCase: GetMainUseCase,
     private var viewModelJob = Job()
     private val ioScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    val catListData: LiveData<PagingData<CatModel>> = getMainUseCase.execute().cachedIn(viewModelScope)
+    val catListData: LiveData<PagingData<CatModel>> = getCatsUseCase.execute().cachedIn(viewModelScope)
 
     fun postLike(id: String){
         ioScope.launch {

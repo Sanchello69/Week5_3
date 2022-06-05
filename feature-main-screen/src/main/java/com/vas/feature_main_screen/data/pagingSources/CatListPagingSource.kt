@@ -18,7 +18,7 @@ class CatListPagingSource (
             val page: Int = params.key ?: 1
             val pageSize: Int = params.loadSize.coerceAtMost(NETWORK_PAGE_SIZE)
 
-            val response = api.getMainResult(page)
+            val response = api.getCatsResult(page)
                 val cats = response.map {
                     CatModel(
                         id = it.id,

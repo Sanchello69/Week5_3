@@ -13,7 +13,7 @@ import com.vas.feature_main_screen.domain.repository.MainRepository
 
 class MainRepositoryImpl(private val api: Api): MainRepository {
 
-    override fun getMainResult() : LiveData<PagingData<CatModel>> {
+    override fun getCatsResult() : LiveData<PagingData<CatModel>> {
         return Pager(
             config = PagingConfig(
                 pageSize = NETWORK_PAGE_SIZE,

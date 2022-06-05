@@ -13,7 +13,7 @@ import io.ktor.client.statement.*
 
 class Api (private val httpClient: HttpClient) {
 
-    suspend fun getMainResult(page: Int): List<CatModelApi> {
+    suspend fun getCatsResult(page: Int): List<CatModelApi> {
         try {
             val response: List<CatModelApi> = httpClient.get(BASE_URL + CAT_URL){
                 url {

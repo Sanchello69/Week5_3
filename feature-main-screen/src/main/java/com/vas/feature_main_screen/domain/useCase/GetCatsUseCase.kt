@@ -5,9 +5,9 @@ import androidx.paging.PagingData
 import com.vas.feature_main_screen.domain.model.CatModel
 import com.vas.feature_main_screen.domain.repository.MainRepository
 
-class GetMainUseCase(private val mainRepository: MainRepository) {
+class GetCatsUseCase(private val mainRepository: MainRepository) {
 
     fun execute(): LiveData<PagingData<CatModel>> {
-        return mainRepository.getMainResult()
+        return mainRepository.getCatsResult()
     }
 }

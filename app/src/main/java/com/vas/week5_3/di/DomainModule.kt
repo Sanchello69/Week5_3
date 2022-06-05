@@ -3,7 +3,7 @@ package com.vas.week5_3.di
 import com.vas.feature_favorite_screen.domain.repository.FavoriteRepository
 import com.vas.feature_favorite_screen.domain.useCase.GetFavoriteUseCase
 import com.vas.feature_main_screen.domain.repository.MainRepository
-import com.vas.feature_main_screen.domain.useCase.GetMainUseCase
+import com.vas.feature_main_screen.domain.useCase.GetCatsUseCase
 import com.vas.feature_main_screen.domain.useCase.PostLikeUseCase
 import dagger.Module
 import dagger.Provides
@@ -12,8 +12,8 @@ import dagger.Provides
 class DomainModule {
 
     @Provides
-    fun provideGetMainUseCase(mainRepository: MainRepository): GetMainUseCase{
-        return GetMainUseCase(mainRepository = mainRepository)
+    fun provideGetMainUseCase(mainRepository: MainRepository): GetCatsUseCase{
+        return GetCatsUseCase(mainRepository = mainRepository)
     }
 
     @Provides

@@ -6,7 +6,7 @@ import com.vas.feature_main_screen.domain.model.CatModel
 
 interface MainRepository {
 
-    fun getMainResult() : LiveData<PagingData<CatModel>>
+    fun getCatsResult() : LiveData<PagingData<CatModel>>
 
     suspend fun postLikeCat(id: String) : String
 }
